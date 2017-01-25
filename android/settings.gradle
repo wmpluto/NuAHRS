@@ -1,0 +1,3 @@
+rootProject.name = 'NuAHRS'
+
+include ':app'
