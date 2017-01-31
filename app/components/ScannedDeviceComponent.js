@@ -82,13 +82,18 @@ export default  class ScannedDeviceComponent extends Component {
     }
 
     _renderRow(rowData) {
+        const jumpToTab = () => {
+          this.toggleScanning(false);
+          Actions.tabBar({device: rowData});
+        }
+
         if (rowData.hasOwnProperty("name")) {
             return (
              <ScannedDeviceView
                name={rowData.name}
                uuid={rowData.id}
                rssi={rowData.rssi}
-               onClick={() => { Actions.tabBar(); }}
+               onClick={jumpToTab}
              />
            )
        } else {
@@ -97,7 +102,7 @@ export default  class ScannedDeviceComponent extends Component {
               name={null}
               uuid={rowData.id}
               rssi={rowData.rssi}
-              onClick={() => { Actions.tabBar(); }}
+              onClick={jumpToTab}
             />
           )
        }

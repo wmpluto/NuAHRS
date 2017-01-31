@@ -37,7 +37,7 @@ export default class NaviRouter extends Component {
               inital={true}
               title="Scanning Device"  />
             <Scene key="tabBar" tabs={true} hideNavBar={true} tabBarStyle={styles.tabBarStyle}>
-             <Scene key="attitudeTab" title="Attitude" icon={TabIcon}>
+             <Scene key="attitudeTab" title="Attitude" initial icon={TabIcon}>
                <Scene key="attitudeView" title="NuAHRS" hideBackImage component={ShowAttitudeComponent}/>
              </Scene>
              <Scene key="settingTab" title="Setting" icon={TabIcon}>
