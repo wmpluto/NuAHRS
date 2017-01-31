@@ -87,13 +87,18 @@ import ScannedDeviceView from './app/components/ScannedDeviceView';
      }
 
      _renderRow(rowData) {
+         const connectToDevice  = () => {
+             console.log(rowData.id);
+             this.toggleScanning(false);
+         }
+
          if (rowData.hasOwnProperty("name")) {
              return (
               <ScannedDeviceView
                 name={rowData.name}
                 uuid={rowData.id}
                 rssi={rowData.rssi}
-                onClick={null}
+                onClick={connectToDevice}
               />
             )
         } else {
@@ -102,7 +107,7 @@ import ScannedDeviceView from './app/components/ScannedDeviceView';
                name={null}
                uuid={rowData.id}
                rssi={rowData.rssi}
-               onClick={null}
+               onClick={connectToDevice}
              />
            )
         }
