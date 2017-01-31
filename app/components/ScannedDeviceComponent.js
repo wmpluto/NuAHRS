@@ -11,9 +11,10 @@ import {
     PermissionsAndroid
 } from 'react-native';
 import BleManager from 'react-native-ble-manager';
+import { Actions } from 'react-native-router-flux';
 import ScannedDeviceView from './ScannedDeviceView';
 
-class ScannedDeviceComponent extends Component {
+export default  class ScannedDeviceComponent extends Component {
 
     constructor(){
         super()
@@ -87,7 +88,7 @@ class ScannedDeviceComponent extends Component {
                name={rowData.name}
                uuid={rowData.id}
                rssi={rowData.rssi}
-               onClick={null}
+               onClick={() => { Actions.tabBar(); }}
              />
            )
        } else {
@@ -96,7 +97,7 @@ class ScannedDeviceComponent extends Component {
               name={null}
               uuid={rowData.id}
               rssi={rowData.rssi}
-              onClick={null}
+              onClick={() => { Actions.tabBar(); }}
             />
           )
        }
@@ -114,7 +115,7 @@ class ScannedDeviceComponent extends Component {
 
         return (
             <View style={container}>
-                <ListView style={{flex:1, margin:20}}
+                <ListView style={{flex:1, marginTop:50}}
                     enableEmptySections={true}
                     dataSource={this.state.dataSource.cloneWithRows(this.state.devices)}
                     renderRow={(rowData, sectionId, rowId) => this._renderRow(rowData)}
@@ -126,5 +127,3 @@ class ScannedDeviceComponent extends Component {
         );
     }
 }
-
-export default ScannedDeviceComponent

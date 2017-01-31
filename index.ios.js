@@ -4,10 +4,10 @@
  * @flow
  */
 
- import {
-   AppRegistry,
- } from 'react-native';
+import {
+  AppRegistry,
+} from 'react-native';
 
-import ScannedDeviceComponent from './app/components/ScannedDeviceComponent';
+import NaviRouter from './NaviRouter';
 
-AppRegistry.registerComponent('NuAHRS', () => ScannedDeviceComponent);
+AppRegistry.registerComponent('NuAHRS', () => NaviRouter);
