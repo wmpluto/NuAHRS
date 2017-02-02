@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, NativeAppEventEmitter} from 'react-native';
 import BleManager from 'react-native-ble-manager';
+import cmds from '../CMDs';
 
 class ShowAttitudeComponent extends Component {
   constructor(props){
@@ -20,8 +21,6 @@ class ShowAttitudeComponent extends Component {
     NativeAppEventEmitter
         .addListener('BleManagerDidUpdateValueForCharacteristic', this.handleUpdateCharacteristic );
     this._bleConnect(this.props.device.id);
-    //Send @hk 
-    BleManager.write(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic, "QGgwMA==", 20);
   }
 
   handleUpdateCharacteristic(data) {
@@ -37,26 +36,46 @@ class ShowAttitudeComponent extends Component {
         // check service
         for (service of peripheralInfo.services) {
           if (service == "FF00") {
+            this.setState({bleStatus:'Find Service' + service});
+
             //check readCharacteristic & writeCharacteristic
             var chs = peripheralInfo.characteristics.map(function (item,index,input) {
               return item.characteristic;
             })
-            var flag = 0;
+            var flag = false;
             for (ch of chs){
               if (this.state.readCharacteristic == ch) {
                 BleManager.startNotification(this.state.peripheralId, this.state.serviceUUID, this.state.readCharacteristic);
-                flag += 1;
-              }
-              if (this.state.writeCharacteristic == ch) {
-                flag += 1;
+                flag = true;
+                break;
               }
             }
-            if (flag > 1) {
+            if (flag) {
+              this.setState({bleStatus:'Get Read Char'});
+            } else {
+              this.setState({bleStatus:'Something Wrong'});
+              return;
+            }
+            flag = false;
+            for (ch of chs){
+              if (this.state.writeCharacteristic == ch) {
+                BleManager.write(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic, cmds.HOOKCMD, 20);
+                flag = true;
+                break;
+              }
+            }
+            if (flag) {
+              this.setState({bleStatus:'Get Write Char'});
+            } else {
+              this.setState({bleStatus:'Something Wrong'});
+              return;
+            }
+
+            if (flag) {
               this.setState({bleStatus:'Connected to ' + peripheralInfo.name});
             } else {
               this.setState({bleStatus:'Something Wrong'});
             }
-
             return;
           }
         }
