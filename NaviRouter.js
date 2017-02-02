@@ -14,6 +14,7 @@ import TabIcon from './app/components/TabIcon';
 import ScannedDeviceComponent from './app/components/ScannedDeviceComponent';
 import SettingComponent from './app/components/SettingComponent';
 import ShowAttitudeComponent from './app/components/ShowAttitudeComponent';
+import SimpleShellComponent from './app/components/SimpleShellComponent';
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: 'transparent', justifyContent: 'center',
@@ -42,6 +43,7 @@ export default class NaviRouter extends Component {
              </Scene>
              <Scene key="settingTab" title="Setting" icon={TabIcon}>
                <Scene key="settingView" title="NuAHRS" hideBackImage component={SettingComponent}/>
+               <Scene key="shellView" title="SimpleShell" hideTabBar component={SimpleShellComponent}/>
              </Scene>
            </Scene>
          </Scene>

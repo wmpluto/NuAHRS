@@ -5,9 +5,13 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 let borderColor = '#2d7599'
 
+var Dimensions = require('Dimensions');//获取屏幕的宽高
+var ScreenWidth = Dimensions.get('window').width;
+var ScreenHeight = Dimensions.get('window').height;
+
 const ScannedDeviceView = ({name, uuid, rssi, onClick}) => {
   return (
-    <TouchableOpacity onPress={onClick}>
+    <TouchableOpacity onPress={onClick} style={{width:ScreenWidth-40,marginTop:5}}>
       <View style={styles.background}>
         <View style={styles.topRow}>
           <View style={styles.nameRow}>
