@@ -25,7 +25,7 @@ export default class SettingComponent extends Component {
   _renderRow(rowData, rowId) {
     return(
       <TouchableOpacity style={{height: 32, marginTop: 10, backgroundColor: '#eeeeee', justifyContent: 'center', width:ScreenWidth-40}}
-        onPress={() => Actions.shellView()}>
+        onPress={() => Actions.shellView({device: this.props.device})}>
         <Text style={{fontSize: 18}}>{rowData}</Text>
       </TouchableOpacity>
     )

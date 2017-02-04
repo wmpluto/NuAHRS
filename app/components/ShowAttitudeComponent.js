@@ -20,7 +20,11 @@ class ShowAttitudeComponent extends Component {
     BleManager.stopScan();
     NativeAppEventEmitter
         .addListener('BleManagerDidUpdateValueForCharacteristic', this.handleUpdateCharacteristic );
-    //this._bleConnect(this.props.device.id);
+    this._bleConnect(this.props.device.id);
+  }
+
+  componentWillUnmount(){
+    //NativeAppEventEmitter.removeAllListeners();
   }
 
   handleUpdateCharacteristic(data) {

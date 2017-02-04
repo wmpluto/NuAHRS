@@ -4,5 +4,7 @@ export default cmds = {
   SSCMD: 'QHNz',
   FBCMD: 'QGZi',
   VFCMD: 'QHZm',
-  VBCMD: 'QHZi'
+  VBCMD: 'QHZi',
+  CAZ: 'QGNheg==',
+  CGZ: 'QGNneg=='
 }

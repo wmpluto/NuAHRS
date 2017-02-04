@@ -56,6 +56,10 @@ export default  class ScannedDeviceComponent extends Component {
         }
     }
 
+    componentWillUnmount(){
+      NativeAppEventEmitter.removeEventListener('BleManagerDiscoverPeripheral', this.handleDiscoverPeripheral);
+    }
+
     handleScan() {
         BleManager.scan([], 30, true)
             .then((results) => {console.log('Scanning...'); });
