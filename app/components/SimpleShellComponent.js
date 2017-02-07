@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ListView, TouchableOpacity, NativeAppEventEmitter} from 'react-native';
+import { View, Text, ListView, TouchableOpacity, NativeAppEventEmitter, ScrollView} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {Select, Option} from "react-native-chooser";
 import BleManager from 'react-native-ble-manager';
@@ -20,6 +20,7 @@ export default class SettingComponent extends Component {
       readCharacteristic: "FF02",
       peripheralId: this.props.device.id,
       serviceUUID: "FF00",
+      results: [1,2,3,4]
     }
   }
 
@@ -73,7 +74,14 @@ export default class SettingComponent extends Component {
             <Option value = {cmds.CAZ}>@caz</Option>
             <Option value = {cmds.CGZ}>@cgz</Option>
           </Select>
-          <Text style={{height: ScreenHeight -160, backgroundColor: "#eeeeee", marginTop: 5}}>{this.state.content}</Text>
+          <Text style={{backgroundColor: "#eeeeee", marginTop: 5}}>{this.state.content}</Text>
+          <ScrollView style={{ backgroundColor: '#33ee55', margin: 10}}>
+            {
+              this.state.results.map((result) => {
+                return  <Text style={{backgroundColor: "#eeeeee", marginTop: 5}} key={result.id}>{result}</Text>
+              })
+            }
+          </ScrollView>
         </View>
       </View>
     )
