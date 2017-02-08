@@ -6,5 +6,13 @@ export default cmds = {
   VFCMD: 'QHZm',
   VBCMD: 'QHZi',
   CAZ: 'QGNheg==',
-  CGZ: 'QGNneg=='
+  CGZ: 'QGNneg==',
+  CA0: 'QGNhMA==',
+  CA1: 'QGNhMQ==',
+  CA2: '',
+  CA0: '',
+  CA0: '',
+  CA0: '',
+  CGX: '',
+  CGY: ''
 }
