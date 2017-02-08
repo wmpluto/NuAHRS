@@ -9,10 +9,10 @@ export default cmds = {
   CGZ: 'QGNneg==',
   CA0: 'QGNhMA==',
   CA1: 'QGNhMQ==',
-  CA2: '',
-  CA0: '',
-  CA0: '',
-  CA0: '',
-  CGX: '',
-  CGY: ''
+  CA2: 'QGNhMg==',
+  CA3: 'QGNhMw==',
+  CA4: 'QGNhNA==',
+  CA5: 'QGNhNQ==',
+  CGX: 'QGNneA==',
+  CGY: 'QGNneQ=='
 }

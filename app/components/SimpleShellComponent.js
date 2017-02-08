@@ -29,8 +29,9 @@ export default class SettingComponent extends Component {
     //console.log(data);
     this.setState({content: data});
     /*if (data == cmds.SSCMD) {
-      setTimeout(this.stopIt(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic), 1000);
+      this.setTimeout(this.stopIt(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic), 5000);
     }*/
+    this.setState({results: []})
     BleManager.write(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic, data, 20);
   }
 
@@ -52,6 +53,7 @@ export default class SettingComponent extends Component {
     }else {
       this.state.results.push(tmp)
     }
+    this.setState({results: this.state.results})
   }
 
   componentDidMount() {
@@ -88,6 +90,14 @@ export default class SettingComponent extends Component {
             <Option value = {cmds.SPCMD}>@sp</Option>
             <Option value = {cmds.HOOKCMD}>@hk00</Option>
             <Option value = {cmds.CAZ}>@caz</Option>
+            <Option value = {cmds.CA0}>@ca0</Option>
+            <Option value = {cmds.CA1}>@ca1</Option>
+            <Option value = {cmds.CA2}>@ca2</Option>
+            <Option value = {cmds.CA3}>@ca3</Option>
+            <Option value = {cmds.CA4}>@ca4</Option>
+            <Option value = {cmds.CA5}>@ca5</Option>
+            <Option value = {cmds.CGX}>@cgx</Option>
+            <Option value = {cmds.CGY}>@cgy</Option>
             <Option value = {cmds.CGZ}>@cgz</Option>
           </Select>
           <Text style={{backgroundColor: "#eeeeee", marginTop: 5}}>{this.state.content}</Text>
