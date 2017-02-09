@@ -48,11 +48,11 @@ export default class SettingComponent extends Component {
     var tmp = {};
     tmp.text = current;
     tmp.id = this.state.results.length;
-    if (tmp.id > 1024) {
-      this.state.results = []
-    }else {
-      this.state.results.push(tmp)
+    if ((tmp.id > 4) && (tmp.id < 8)) {
+      //this.state.results = []
+      BleManager.write(this.state.peripheralId, this.state.serviceUUID, this.state.writeCharacteristic, cmds.SPCMD, 20);
     }
+    this.state.results.push(tmp)
     this.setState({results: this.state.results})
   }
 
