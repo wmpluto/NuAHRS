@@ -89,16 +89,7 @@ export default class SettingComponent extends Component {
             <Option value = {cmds.SSCMD}>@ss</Option>
             <Option value = {cmds.SPCMD}>@sp</Option>
             <Option value = {cmds.HOOKCMD}>@hk00</Option>
-            <Option value = {cmds.CAZ}>@caz</Option>
-            <Option value = {cmds.CA0}>@ca0</Option>
-            <Option value = {cmds.CA1}>@ca1</Option>
-            <Option value = {cmds.CA2}>@ca2</Option>
-            <Option value = {cmds.CA3}>@ca3</Option>
-            <Option value = {cmds.CA4}>@ca4</Option>
-            <Option value = {cmds.CA5}>@ca5</Option>
-            <Option value = {cmds.CGX}>@cgx</Option>
-            <Option value = {cmds.CGY}>@cgy</Option>
-            <Option value = {cmds.CGZ}>@cgz</Option>
+
           </Select>
           <Text style={{backgroundColor: "#eeeeee", marginTop: 5}}>{this.state.content}</Text>
           <ScrollView style={{ backgroundColor: '#33ee55', margin: 10}}>
